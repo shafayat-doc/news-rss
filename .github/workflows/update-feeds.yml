@@ -28,6 +28,11 @@ jobs:
       - name: Generate RSS feeds
         run: python generate_feeds.py
 
+      - name: Check generated files
+        run: |
+          echo "Files generated:"
+          find feeds -type f -maxdepth 2 -print
+
       - name: Save updated feeds
         run: |
           git config user.name "github-actions[bot]"
